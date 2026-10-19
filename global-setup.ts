@@ -5,9 +5,11 @@ import os from "os";
 async function globalSetup() {
   const allureResultsDir = path.join(process.cwd(), "allure-results");
 
-  if (!fs.existsSync(allureResultsDir)) {
-    fs.mkdirSync(allureResultsDir, { recursive: true });
+  // پاک کردن نتایج اجراهای قبلی تا فقط نتایج اجرای فعلی در گزارش بیاد
+  if (fs.existsSync(allureResultsDir)) {
+    fs.rmSync(allureResultsDir, { recursive: true, force: true });
   }
+  fs.mkdirSync(allureResultsDir, { recursive: true });
 
   const packageJson = JSON.parse(
     fs.readFileSync(path.join(process.cwd(), "package.json"), "utf-8"),
