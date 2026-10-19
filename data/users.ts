@@ -1,22 +1,22 @@
 export const USERS = {
   standard: {
-    username: "standard_user",
-    password: "secret_sauce",
-  },
-  wrongPass: {
-    username: "standard_user",
-    password: "wrong_password",
+    username: process.env.STANDARD_USERNAME || "",
+    password: process.env.STANDARD_PASSWORD || "",
   },
   wrongUser: {
-    username: "wrong_user",
-    password: "secret_sauce",
+    username: process.env.WRONG_USERNAME || "",
+    password: process.env.STANDARD_PASSWORD || "",
+  },
+  wrongPass: {
+    username: process.env.STANDARD_USERNAME || "",
+    password: process.env.WRONG_PASSWORD || "",
   },
   emptyUser: {
     username: "",
-    password: "secret_sauce",
+    password: process.env.WRONG_PASSWORD || "",
   },
   emptyPass: {
-    username: "standard_user",
+    username: process.env.STANDARD_USERNAME || "",
     password: "",
   },
 } as const;
