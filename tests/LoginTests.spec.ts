@@ -73,7 +73,7 @@ test.describe("Login Tests", () => {
     await common.expectVisible(login.errorMessage);
     await common.expectText(login.errorMessage, MESSAGES.emptyUser);
   });
-  test("5-Empty Password Test", { tag: ["@regression"] }, async () => {
+  test("5-Empty Password Test1 ", { tag: ["@regression"] }, async () => {
     await common.fill(login.usernameInput, USERS.emptyPass.username);
     await common.fill(login.passwordInput, USERS.emptyPass.password);
     await common.expectValue(login.usernameInput, USERS.emptyPass.username);
